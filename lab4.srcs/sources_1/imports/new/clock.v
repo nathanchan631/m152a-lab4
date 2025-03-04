@@ -38,8 +38,9 @@ module clock(
     reg [31:0] countDisplay  = 0;
     reg [31:0] countBlink = 0;
     
-    parameter DIV_DISPLAY  = 200_000;      // 500 Hz
-    parameter DIV_BLINK   = 100_000_000;  // 1 Hz
+    // TODO: These should be 1000 times larger
+    parameter DIV_DISPLAY  = 200;      // 500 Hz
+    parameter DIV_BLINK   = 100_000;  // 1 Hz
     
     // display clock
     always @(posedge clk) begin

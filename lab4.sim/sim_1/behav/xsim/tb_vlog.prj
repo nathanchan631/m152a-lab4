@@ -4,6 +4,7 @@ verilog xil_defaultlib  \
 "../../../../lab4.srcs/sources_1/imports/new/clock.v" \
 "../../../../lab4.srcs/sources_1/imports/new/counter.v" \
 "../../../../lab4.srcs/sources_1/imports/new/seg7_control.v" \
+"../../../../lab4.srcs/sources_1/new/seq_gen.v" \
 "../../../../lab4.srcs/sim_1/new/tb.v" \
 
 # compile glbl module
