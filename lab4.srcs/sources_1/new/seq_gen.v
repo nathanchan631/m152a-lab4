@@ -23,13 +23,14 @@
 module seq_gen(
     input clk,
     input clk_blink,
+    input reset,
     input start_seq,
-    input[2:0] level,
+    input[3:0] level,
     output[15:0] led
     );
     
     integer sequences[7:0];
-    reg[2:0] index = 0;  // 0-7
+    reg[3:0] index = 0;  // 0-8
     
     reg[15:0] led_reg = 0;
     reg playing_seq = 0;
@@ -45,20 +46,23 @@ module seq_gen(
         sequences[7] = 32'h849ea746;
     end
     
-    always @(posedge start_seq) begin
-        playing_seq <= 1;
-    end
-    
     always @(posedge clk) begin
-        if (playing_seq) begin
-            if (index == level) begin
-                playing_seq <= 0;  // why is playing_seq becoming low so early
+        if (reset) begin
+            index <= 0;
+            led_reg <= 0;
+        end
+        else if (start_seq) begin
+            playing_seq <= 1;
+        end
+        else if (clk_blink && playing_seq) begin
+            led_reg <= 0;
+            
+            if (index > level) begin
+                playing_seq <= 0;
                 index <= 0;
             end
             else begin
-                led_reg <= 0;
-                led_reg[sequences[index]] <= 1;
-                
+                led_reg[(sequences[level] >> (index * 4)) & 4'hF] <= 1'b1;
                 index <= index + 1;
             end
         end

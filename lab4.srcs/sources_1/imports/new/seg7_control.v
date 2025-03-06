@@ -25,12 +25,8 @@
 module seg7_control(
     input clk,
     input clk_display,
-    input clk_blink,
-    input restart,
+    input reset,
     input [3:0] ones,
-    input [3:0] tens,
-    input [3:0] hundreds,
-    input [3:0] thousands,
     output reg [0:6] seg,       // segment pattern 0-9
     output reg [3:0] digit      // digit select signals
     );
@@ -47,13 +43,15 @@ module seg7_control(
     parameter SEVEN = 7'b000_1111;  // 7
     parameter EIGHT = 7'b000_0000;  // 8
     parameter NINE  = 7'b000_0100;  // 9
+    parameter L     = 7'b111_0001;
+    parameter V     = 7'b100_0001;
     
     // To select each digit in turn
     reg [1:0] digit_select = 0;     // 2 bit counter for selecting each of 4 digits
     
     // Logic for controlling digit select and digit timer
-    always @(posedge clk_display or posedge restart) begin
-        if(restart) begin
+    always @(posedge clk_display or posedge reset) begin
+        if(reset) begin
             digit_select <= 0;
         end
         else
@@ -88,46 +86,13 @@ module seg7_control(
                 endcase
             end
             2'b01 : begin       // TENS DIGIT
-                case(tens)
-                    4'b0000 : seg = ZERO;
-                    4'b0001 : seg = ONE;
-                    4'b0010 : seg = TWO;
-                    4'b0011 : seg = THREE;
-                    4'b0100 : seg = FOUR;
-                    4'b0101 : seg = FIVE;
-                    4'b0110 : seg = SIX;
-                    4'b0111 : seg = SEVEN;
-                    4'b1000 : seg = EIGHT;
-                    4'b1001 : seg = NINE;
-                endcase
+                seg = L;
             end
             2'b10 : begin       // HUNDREDS DIGIT
-                case(hundreds)
-                    4'b0000 : seg = ZERO;
-                    4'b0001 : seg = ONE;
-                    4'b0010 : seg = TWO;
-                    4'b0011 : seg = THREE;
-                    4'b0100 : seg = FOUR;
-                    4'b0101 : seg = FIVE;
-                    4'b0110 : seg = SIX;
-                    4'b0111 : seg = SEVEN;
-                    4'b1000 : seg = EIGHT;
-                    4'b1001 : seg = NINE;
-                endcase
+                seg = V;
             end
             2'b11 : begin       // MINUTES ONES DIGIT
-                case(thousands)
-                    4'b0000 : seg = ZERO;
-                    4'b0001 : seg = ONE;
-                    4'b0010 : seg = TWO;
-                    4'b0011 : seg = THREE;
-                    4'b0100 : seg = FOUR;
-                    4'b0101 : seg = FIVE;
-                    4'b0110 : seg = SIX;
-                    4'b0111 : seg = SEVEN;
-                    4'b1000 : seg = EIGHT;
-                    4'b1001 : seg = NINE;
-                endcase
+                seg = L;
             end
         endcase
 endmodule

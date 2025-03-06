@@ -7,10 +7,15 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.tone_generator
+Compiling module xil_defaultlib.inputs
 Compiling module xil_defaultlib.clock
 Compiling module xil_defaultlib.seq_gen
+Compiling module xil_defaultlib.encoder16to4
+Compiling module xil_defaultlib.player_seq
 Compiling module xil_defaultlib.counter
 Compiling module xil_defaultlib.seg7_control
+Compiling module xil_defaultlib.seg7_2_control
 Compiling module xil_defaultlib.basys3
 Compiling module xil_defaultlib.tb
 Compiling module xil_defaultlib.glbl

@@ -4,9 +4,19 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4
 INFO: [VRFC 10-311] analyzing module clock
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/imports/new/counter.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/imports/src/encoder16to4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module encoder16to4
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/imports/src/inputs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inputs
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/imports/src/player_seq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module player_seq
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/new/seg7_2_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seg7_2_control
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/imports/new/seg7_control.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module seg7_control
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/new/seq_gen.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module seq_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sources_1/new/tone_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tone_generator
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Student/Desktop/nc_kc/lab4/lab4.srcs/sim_1/new/tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tb
