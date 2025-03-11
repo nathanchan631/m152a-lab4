@@ -18,15 +18,16 @@ module basys3(
     wire w_blink;
     wire [3:0] w_ones;
     wire [3:0] level;
-    wire high_score;
+    wire [3:0] w_high_score;
     
     reg start_seq;
 
-    wire restart_input;  // TODO: connect this to a register and set its initial value to 0
+    wire restart_input;
     wire reset_game;
     wire next_level;
 
     assign level = w_ones - 1;
+    assign restart_input = btn0;
 
     // Start by playing the sequence
     initial begin
@@ -42,13 +43,6 @@ module basys3(
             start_seq <= 0;
         end
     end
-        
-    // Frequency Divider
-    tone_generator buzzer(
-      .clk(clk),
-      .enable(btn0),
-      .sound(sound)
-    );
 
     inputs inputs_(
         .clk (clk),
@@ -81,16 +75,22 @@ module basys3(
         .incorrect (reset_game)
     );
     
+    tone_generator buzzer(
+      .clk (clk),
+      .correct (next_level),
+      .incorrect (reset_game),
+      .sound (sound)
+    );
+
     counter counter_ (
         .clk            (clk),
         .reset          (reset_game),
         .inc_counter    (next_level),
         .w_ones         (w_ones),
-        .w_high_score   (high_score)
+        .w_high_score   (w_high_score)
     );
     
     seg7_control seg7_(
-        .clk (clk),
         .clk_display (w_display),
         .reset (reset_game),
         .ones (w_ones),
@@ -99,9 +99,7 @@ module basys3(
     );
     
     seg7_2_control seg7_2(
-        .clk (clk),
-        .reset (reset_game),
-        .ones (high_score),
+        .ones (w_high_score),
         .seg (seg2)
     );
     

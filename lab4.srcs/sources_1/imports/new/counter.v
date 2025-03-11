@@ -42,8 +42,9 @@ module counter(
                 ones <= ones + 1;
         end
         
-        if (ones > high_score)
+        if (ones > high_score) begin
             high_score <= ones;
+        end
     end
     
     assign w_ones = ones;

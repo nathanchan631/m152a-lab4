@@ -23,8 +23,6 @@
 `timescale 1ns / 1ps
 
 module seg7_2_control(
-    input clk,
-    input reset,
     input [3:0] ones,
     output reg [0:6] seg       // segment pattern 0-9
     );

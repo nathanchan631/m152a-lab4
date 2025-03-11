@@ -23,7 +23,6 @@
 `timescale 1ns / 1ps
 
 module seg7_control(
-    input clk,
     input clk_display,
     input reset,
     input [3:0] ones,
